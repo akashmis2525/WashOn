@@ -1,0 +1,76 @@
+import { WalletState, CouponOffer } from '../types/wallet';
+
+export const mockWalletData: WalletState = {
+  balance: 450,
+  currency: '₹',
+  transactions: [
+    {
+      id: 'tx_01',
+      type: 'credit',
+      amount: 500,
+      title: 'Money Added',
+      description: 'Added via UPI (Google Pay)',
+      date: '10 Feb 2026, 04:30 PM',
+      referenceId: 'UPI-982173812',
+      status: 'completed',
+    },
+    {
+      id: 'tx_02',
+      type: 'debit',
+      amount: 441,
+      title: 'Booking Payment',
+      description: 'Paid for Booking #WO-2026-8891',
+      date: '14 Feb 2026, 11:50 AM',
+      referenceId: 'WO-2026-8891',
+      status: 'completed',
+    },
+    {
+      id: 'tx_03',
+      type: 'credit',
+      amount: 391,
+      title: 'Cashback Reward',
+      description: 'Promotional welcome bonus',
+      date: '15 Feb 2026, 09:00 AM',
+      referenceId: 'CB-99120',
+      status: 'completed',
+    },
+  ],
+};
+
+export const mockCoupons: CouponOffer[] = [
+  {
+    id: 'c_01',
+    code: 'FIRST100',
+    title: 'Flat ₹100 OFF',
+    description: 'Get flat ₹100 off on your first doorstep vehicle wash.',
+    discountType: 'flat',
+    discountValue: 100,
+    minOrderAmount: 299,
+    validUntil: '31 Dec 2026',
+    terms: ['Valid for new customers only', 'Minimum order value ₹299', 'Cannot be combined with wallet cashback'],
+  },
+  {
+    id: 'c_02',
+    code: 'WASH50',
+    title: '50% OFF up to ₹150',
+    description: 'Save 50% on all bike and car add-on packages.',
+    discountType: 'percentage',
+    discountValue: 50,
+    minOrderAmount: 199,
+    maxDiscountAmount: 150,
+    validUntil: '30 Nov 2026',
+    terms: ['Applicable on all services', 'Max discount ₹150'],
+  },
+  {
+    id: 'c_03',
+    code: 'WEEKEND20',
+    title: '20% OFF Weekend Special',
+    description: 'Book a Saturday or Sunday slot and get 20% discount.',
+    discountType: 'percentage',
+    discountValue: 20,
+    minOrderAmount: 349,
+    maxDiscountAmount: 200,
+    validUntil: '31 Dec 2026',
+    terms: ['Valid only on Saturdays and Sundays'],
+  },
+];

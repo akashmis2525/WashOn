@@ -1,0 +1,41 @@
+import { UserProfile } from '../types/user';
+
+export const mockUserProfile: UserProfile = {
+  id: 'usr_001',
+  name: 'Rahul Sharma',
+  email: 'rahul.sharma@example.com',
+  phoneNumber: '+91 9876543210',
+  avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150',
+  gender: 'male',
+  addresses: [
+    {
+      id: 'addr_001',
+      label: 'Home',
+      addressLine1: 'Flat 402, Sunshine Heights',
+      addressLine2: 'Road No. 12, Banjara Hills',
+      landmark: 'Near City Center Mall',
+      city: 'Hyderabad',
+      state: 'Telangana',
+      pincode: '500034',
+      latitude: 17.4156,
+      longitude: 78.4357,
+      isDefault: true,
+    },
+    {
+      id: 'addr_002',
+      label: 'Work',
+      addressLine1: 'Cyber Towers, 4th Floor',
+      addressLine2: 'Hitech City, Madhapur',
+      landmark: 'Opposite Cyber Pearl',
+      city: 'Hyderabad',
+      state: 'Telangana',
+      pincode: '500081',
+      latitude: 17.4504,
+      longitude: 78.3808,
+      isDefault: false,
+    },
+  ],
+  defaultAddressId: 'addr_001',
+  createdAt: '2026-01-15T10:00:00Z',
+  updatedAt: '2026-02-01T12:00:00Z',
+};

@@ -1,0 +1,40 @@
+import { Vehicle } from '../types/vehicle';
+
+export const mockVehicles: Vehicle[] = [
+  {
+    id: 'veh_001',
+    userId: 'usr_001',
+    type: 'bike',
+    brand: 'Royal Enfield',
+    model: 'Classic 350',
+    registrationNumber: 'TS 09 AB 1234',
+    color: 'Stealth Black',
+    fuelType: 'petrol',
+    isDefault: true,
+    createdAt: '2026-01-16T10:00:00Z',
+  },
+  {
+    id: 'veh_002',
+    userId: 'usr_001',
+    type: 'car',
+    brand: 'Hyundai',
+    model: 'Creta SX',
+    registrationNumber: 'TS 09 EF 5678',
+    color: 'Polar White',
+    fuelType: 'diesel',
+    isDefault: false,
+    createdAt: '2026-01-20T14:30:00Z',
+  },
+  {
+    id: 'veh_003',
+    userId: 'usr_001',
+    type: 'scooter',
+    brand: 'Ather',
+    model: '450X',
+    registrationNumber: 'TS 09 XY 9999',
+    color: 'Space Grey',
+    fuelType: 'ev',
+    isDefault: false,
+    createdAt: '2026-02-05T09:15:00Z',
+  },
+];
