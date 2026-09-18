@@ -81,7 +81,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export const RootNavigator: React.FC = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.SPLASH}
+      initialRouteName={Routes.VENDOR_SPLASH}
       screenOptions={{
         headerShown: false,
         animation: 'slide_from_right',
