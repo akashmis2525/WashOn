@@ -36,6 +36,13 @@ export const Shadows = {
     shadowRadius: 0,
     elevation: 0,
   },
+  xs: {
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.04,
+    shadowRadius: 2,
+    elevation: 1,
+  },
   sm: {
     shadowColor: '#000000',
     shadowOffset: { width: 0, height: 1 },

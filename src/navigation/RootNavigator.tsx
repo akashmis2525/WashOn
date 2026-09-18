@@ -32,6 +32,11 @@ import { CustomerInstructionsScreen } from '../screens/booking/CustomerInstructi
 import { PriceBreakdownScreen } from '../screens/booking/PriceBreakdownScreen';
 import { BookingConfirmationScreen } from '../screens/booking/BookingConfirmationScreen';
 import { BookingRequestSentScreen } from '../screens/booking/BookingRequestSentScreen';
+import { WaitingForAcceptanceScreen } from '../screens/tracking/WaitingForAcceptanceScreen';
+import { BookingAcceptedScreen } from '../screens/tracking/BookingAcceptedScreen';
+import { LiveTrackingScreen } from '../screens/tracking/LiveTrackingScreen';
+import { WashermanArrivingScreen } from '../screens/tracking/WashermanArrivingScreen';
+import { WashermanArrivedScreen } from '../screens/tracking/WashermanArrivedScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -91,11 +96,11 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.BOOKING_REQUEST_SENT} component={BookingRequestSentScreen} />
 
       {/* ACCEPTANCE AND TRACKING (031 - 035) */}
-      <Stack.Screen name={Routes.WAITING_FOR_ACCEPTANCE} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.BOOKING_ACCEPTED} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.LIVE_TRACKING} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.WASHERMAN_ARRIVING} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.WASHERMAN_ARRIVED} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.WAITING_FOR_ACCEPTANCE} component={WaitingForAcceptanceScreen} />
+      <Stack.Screen name={Routes.BOOKING_ACCEPTED} component={BookingAcceptedScreen} />
+      <Stack.Screen name={Routes.LIVE_TRACKING} component={LiveTrackingScreen} />
+      <Stack.Screen name={Routes.WASHERMAN_ARRIVING} component={WashermanArrivingScreen} />
+      <Stack.Screen name={Routes.WASHERMAN_ARRIVED} component={WashermanArrivedScreen} />
 
       {/* WASH PROCESS (036 - 041) */}
       <Stack.Screen name={Routes.SERVICE_START_VERIFICATION} component={PlaceholderScreen} />
