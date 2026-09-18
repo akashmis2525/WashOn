@@ -91,11 +91,9 @@ export const VendorOnboarding01Screen: React.FC = () => {
         {/* HERO ILLUSTRATION */}
         <View style={styles.heroContainer}>
           <Image
-            source={{
-              uri: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&auto=format&fit=crop&q=80',
-            }}
+            source={require('../../../assets/vendor_washerman_cutout.png')}
             style={styles.heroImage}
-            resizeMode="cover"
+            resizeMode="contain"
           />
 
           {/* OVERLAY BADGES MATCHING MOCKUP */}
