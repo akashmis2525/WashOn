@@ -37,6 +37,11 @@ import { BookingAcceptedScreen } from '../screens/tracking/BookingAcceptedScreen
 import { LiveTrackingScreen } from '../screens/tracking/LiveTrackingScreen';
 import { WashermanArrivingScreen } from '../screens/tracking/WashermanArrivingScreen';
 import { WashermanArrivedScreen } from '../screens/tracking/WashermanArrivedScreen';
+import { ServiceStartVerificationScreen } from '../screens/wash/ServiceStartVerificationScreen';
+import { BeforeWashPhotosScreen } from '../screens/wash/BeforeWashPhotosScreen';
+import { WashInProgressScreen } from '../screens/wash/WashInProgressScreen';
+import { ServiceProgressDetailsScreen } from '../screens/wash/ServiceProgressDetailsScreen';
+import { AfterWashPhotosScreen } from '../screens/wash/AfterWashPhotosScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -103,11 +108,11 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.WASHERMAN_ARRIVED} component={WashermanArrivedScreen} />
 
       {/* WASH PROCESS (036 - 041) */}
-      <Stack.Screen name={Routes.SERVICE_START_VERIFICATION} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.BEFORE_WASH_PHOTOS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.WASH_IN_PROGRESS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.SERVICE_PROGRESS_DETAILS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.AFTER_WASH_PHOTOS} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.SERVICE_START_VERIFICATION} component={ServiceStartVerificationScreen} />
+      <Stack.Screen name={Routes.BEFORE_WASH_PHOTOS} component={BeforeWashPhotosScreen} />
+      <Stack.Screen name={Routes.WASH_IN_PROGRESS} component={WashInProgressScreen} />
+      <Stack.Screen name={Routes.SERVICE_PROGRESS_DETAILS} component={ServiceProgressDetailsScreen} />
+      <Stack.Screen name={Routes.AFTER_WASH_PHOTOS} component={AfterWashPhotosScreen} />
       <Stack.Screen name={Routes.SERVICE_COMPLETION_CONFIRMATION} component={PlaceholderScreen} />
 
       {/* PAYMENT AND INVOICE (042 - 047) */}
