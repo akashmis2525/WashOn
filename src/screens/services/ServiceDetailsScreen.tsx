@@ -32,7 +32,216 @@ import { RootStackParamList } from '../../types/navigation';
 import { AppText } from '../../components/common/AppText';
 import { mockServices } from '../../mocks/services';
 
-const { width } = Dimensions.get('window');
+interface ServiceDetailConfig {
+  id: string;
+  name: string;
+  category: 'BIKE WASH' | 'CAR WASH';
+  tagline: string;
+  description: string;
+  basePrice: number;
+  priceRange: string;
+  duration: string;
+  imageUrl: string;
+  includedActivities: string[];
+}
+
+const SERVICES_CATALOG: Record<string, ServiceDetailConfig> = {
+  // BIKE SERVICES
+  srv_bike_basic: {
+    id: 'srv_bike_basic',
+    name: 'Basic Bike Wash',
+    category: 'BIKE WASH',
+    tagline: 'Quick and effective wash to remove dust and dirt.',
+    description: 'Quick and effective wash to remove dust and road dirt, keeping your two-wheeler spotless and road-ready.',
+    basePrice: 149,
+    priceRange: '₹149 - ₹199',
+    duration: '30 - 40 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=600&q=80',
+    includedActivities: [
+      'High-pressure water rinse',
+      'pH-neutral shampoo wash',
+      'Tire & wheel rim cleaning',
+      'Microfiber drying & buffing',
+      'Mirror & visor cleaning',
+      'Quick tire dressing',
+    ],
+  },
+  srv_bike_foam: {
+    id: 'srv_bike_foam',
+    name: 'Foam Bike Wash',
+    category: 'BIKE WASH',
+    tagline: 'Deep foam cleaning for extra shine and protection.',
+    description: 'Deep snow foam cleaning for extra shine and paint protection. Removes stubborn grease and road grime.',
+    basePrice: 249,
+    priceRange: '₹249 - ₹349',
+    duration: '40 - 50 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80',
+    includedActivities: [
+      'High-pressure snow foam wash',
+      'Engine exterior wash',
+      'Deep wheel & rim scrub',
+      'Microfiber scratch-free dry',
+      'Tire & rim shine coating',
+      'Mirror and chrome buffing',
+    ],
+  },
+  srv_bike_premium: {
+    id: 'srv_bike_premium',
+    name: 'Premium Bike Wash',
+    category: 'BIKE WASH',
+    tagline: 'Advanced cleaning with high-quality products.',
+    description: 'Advanced cleaning with high-quality products, chain cleaning, polish and complete paint protection.',
+    basePrice: 399,
+    priceRange: '₹399 - ₹499',
+    duration: '50 - 70 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&q=80',
+    includedActivities: [
+      'Full snow foam power wash',
+      'Engine degreasing & cleaning',
+      'Chain cleaning & lubrication',
+      'Body polish & wax coating',
+      'High-gloss tire dressing',
+      'Chrome & metal buffing',
+    ],
+  },
+  srv_bike_chain: {
+    id: 'srv_bike_chain',
+    name: 'Chain Cleaning',
+    category: 'BIKE WASH',
+    tagline: 'Specialized chain cleaning & lube for smooth performance.',
+    description: 'Specialized high-performance chain cleaning and lubrication for extended chain life and smooth riding.',
+    basePrice: 199,
+    priceRange: '₹199 - ₹299',
+    duration: '30 - 40 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&q=80',
+    includedActivities: [
+      'Chain degreasing & grime removal',
+      'Sprocket cleaning',
+      'O-ring safe brush scrub',
+      'High-tack synthetic lubrication',
+      'Rear wheel wipe down',
+      'Smooth gear engagement test',
+    ],
+  },
+  srv_bike_detailing: {
+    id: 'srv_bike_detailing',
+    name: 'Full Bike Detailing',
+    category: 'BIKE WASH',
+    tagline: 'Complete care for a showroom like finish.',
+    description: 'Complete top-to-bottom detailing with engine bay cleaning, scratch reduction polish, and Carnauba wax.',
+    basePrice: 599,
+    priceRange: '₹599 - ₹799',
+    duration: '1.5 - 2 hours',
+    imageUrl: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&q=80',
+    includedActivities: [
+      'Complete deep power wash',
+      'Engine steam degreasing',
+      'Chain cleaning & lubing',
+      'Multi-stage paint polish',
+      'Carnauba wax protection coat',
+      'Tire & plastics ceramic dressing',
+    ],
+  },
+
+  // CAR SERVICES
+  srv_car_exterior: {
+    id: 'srv_car_exterior',
+    name: 'Exterior Wash',
+    category: 'CAR WASH',
+    tagline: 'Remove dust, dirt and grime for a clean shiny exterior.',
+    description: 'Remove dust, dirt and road grime for a clean and shiny exterior with high pressure water rinse.',
+    basePrice: 299,
+    priceRange: '₹299 - ₹449',
+    duration: '30 - 45 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=600&q=80',
+    includedActivities: [
+      'High pressure pre-rinse',
+      'Exterior shampoo hand wash',
+      'Wheel arch & mud flap wash',
+      'Microfiber scratch-free dry',
+      'Exterior glass and mirror clean',
+      'Tire gloss dress',
+    ],
+  },
+  srv_car_foam: {
+    id: 'srv_car_foam',
+    name: 'Foam Wash',
+    category: 'CAR WASH',
+    tagline: 'Deep clean. More shine. A fresher ride every time.',
+    description: 'Deep foam cleaning for extra shine and protection. Removes dirt, grime and road contaminants, leaving your car looking fresh and new.',
+    basePrice: 399,
+    priceRange: '₹399 - ₹599',
+    duration: '45 - 60 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80',
+    includedActivities: [
+      'Pre-rinse with high pressure',
+      'Body polishing',
+      'Foam application',
+      'Windows & mirrors cleaning',
+      'Hand wash & cleaning',
+      'Final rinse & dry',
+      'Wheel & tire cleaning',
+      'Exterior shine',
+    ],
+  },
+  srv_car_interior: {
+    id: 'srv_car_interior',
+    name: 'Interior Cleaning',
+    category: 'CAR WASH',
+    tagline: "Clean and refresh your car's interior for a healthier ride.",
+    description: "Deep interior vacuuming, dashboard conditioning, AC vent sanitization and upholstery stain removal.",
+    basePrice: 499,
+    priceRange: '₹499 - ₹699',
+    duration: '45 - 60 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=600&q=80',
+    includedActivities: [
+      'Deep interior cabin vacuuming',
+      'Dashboard & console polish',
+      'Door pads & panels cleaning',
+      'AC vent antibacterial cleaning',
+      'Floor mat shampoo & dry',
+      'Interior glass shine & perfume',
+    ],
+  },
+  srv_car_full: {
+    id: 'srv_car_full',
+    name: 'Full Car Wash',
+    category: 'CAR WASH',
+    tagline: 'Complete cleaning inside and out for a fresh look.',
+    description: 'Comprehensive package combining full exterior snow foam wash with complete interior vacuuming and polish.',
+    basePrice: 699,
+    priceRange: '₹699 - ₹899',
+    duration: '60 - 90 mins',
+    imageUrl: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=600&q=80',
+    includedActivities: [
+      'High-pressure exterior snow foam wash',
+      'Complete interior vacuuming',
+      'Dashboard & trim dressing',
+      'Wheel rim & tire scrub & glaze',
+      'Windows clean inside & out',
+      'Cabin freshener application',
+    ],
+  },
+  srv_car_detailing: {
+    id: 'srv_car_detailing',
+    name: 'Premium Detailing',
+    category: 'CAR WASH',
+    tagline: 'Advanced care with high-quality products for a showroom finish.',
+    description: 'Ultimate showroom treatment with paint clay bar, machine polish, ceramic gloss wax, and deep upholstery shampoo.',
+    basePrice: 999,
+    priceRange: '₹999 - ₹1,499',
+    duration: '1.5 - 2 hours',
+    imageUrl: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80',
+    includedActivities: [
+      'Snow foam wash & clay bar prep',
+      'Machine buffing & scratch polish',
+      'Hydrophobic ceramic wax coat',
+      'Upholstery deep steam cleaning',
+      'Leather & vinyl UV protection',
+      'Engine bay dust & wipe down',
+    ],
+  },
+};
 
 type ServiceDetailsRouteProp = RouteProp<RootStackParamList, typeof Routes.SERVICE_DETAILS>;
 type ServiceDetailsNavigationProp = NativeStackNavigationProp<
@@ -44,18 +253,8 @@ export const ServiceDetailsScreen: React.FC = () => {
   const navigation = useNavigation<ServiceDetailsNavigationProp>();
   const route = useRoute<ServiceDetailsRouteProp>();
 
-  const serviceId = route.params?.serviceId;
-  const service = mockServices.find((s) => s.id === serviceId) || {
-    id: 'srv_foam_wash',
-    name: 'Foam Wash',
-    category: 'CAR WASH',
-    tagline: 'Deep clean. More shine. A fresher ride every time.',
-    description:
-      'Deep foam cleaning for extra shine and protection. Removes dirt, grime and road contaminants, leaving your car looking fresh and new.',
-    basePrice: 399,
-    estimatedDurationMinutes: 50,
-    imageUrl: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80',
-  };
+  const serviceId = route.params?.serviceId || 'srv_car_foam';
+  const service = SERVICES_CATALOG[serviceId] || SERVICES_CATALOG['srv_car_foam'];
 
   const handleShare = async () => {
     try {
@@ -69,16 +268,7 @@ export const ServiceDetailsScreen: React.FC = () => {
     navigation.navigate(Routes.ADD_ONS, { serviceId: service.id });
   };
 
-  const includedActivities = [
-    'Pre-rinse with high pressure',
-    'Body polishing',
-    'Foam application',
-    'Windows & mirrors cleaning',
-    'Hand wash & cleaning',
-    'Final rinse & dry',
-    'Wheel & tire cleaning',
-    'Exterior shine',
-  ];
+  const includedActivities = service.includedActivities;
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -111,7 +301,7 @@ export const ServiceDetailsScreen: React.FC = () => {
         <View style={styles.heroImageCard}>
           <Image
             source={{
-              uri: 'https://images.unsplash.com/photo-1601362840469-51e4d8d58785?w=600&q=80',
+              uri: service.imageUrl,
             }}
             style={styles.heroImage}
             resizeMode="cover"
@@ -128,7 +318,7 @@ export const ServiceDetailsScreen: React.FC = () => {
           {/* Hero Content on Bottom */}
           <View style={styles.heroTextOverlay}>
             <View style={styles.categoryPill}>
-              <AppText style={styles.categoryPillText}>CAR WASH</AppText>
+              <AppText style={styles.categoryPillText}>{service.category}</AppText>
             </View>
             <AppText style={styles.heroTitle}>{service.name}</AppText>
             <AppText style={styles.heroTagline}>{service.tagline}</AppText>
@@ -145,7 +335,9 @@ export const ServiceDetailsScreen: React.FC = () => {
               </View>
               <View style={styles.heroBadge}>
                 <ShieldCheck size={12} color="#FFFFFF" />
-                <AppText style={styles.heroBadgeText}>Safe for Your Car</AppText>
+                <AppText style={styles.heroBadgeText}>
+                  Safe for Your {service.category === 'BIKE WASH' ? 'Bike' : 'Car'}
+                </AppText>
               </View>
             </View>
           </View>
@@ -161,7 +353,7 @@ export const ServiceDetailsScreen: React.FC = () => {
           <View style={styles.priceRightBlock}>
             <AppText style={styles.startingAtLabel}>Starting at</AppText>
             <AppText style={styles.priceBig}>₹{service.basePrice}</AppText>
-            <AppText style={styles.priceRangeSmall}>(₹399 - ₹599)</AppText>
+            <AppText style={styles.priceRangeSmall}>({service.priceRange})</AppText>
             <View style={styles.bestValueBadge}>
               <Crown size={10} color="#059669" />
               <AppText style={styles.bestValueText}>Best Value</AppText>
@@ -192,7 +384,7 @@ export const ServiceDetailsScreen: React.FC = () => {
               <Clock size={18} color="#0284C7" />
             </View>
             <AppText style={styles.statLabel}>Estimated Duration</AppText>
-            <AppText style={styles.statMainText}>45 - 60 mins</AppText>
+            <AppText style={styles.statMainText}>{service.duration}</AppText>
             <AppText style={styles.statSubText}>Depending on vehicle size</AppText>
           </View>
 
@@ -202,7 +394,7 @@ export const ServiceDetailsScreen: React.FC = () => {
               <CircleDollarSign size={18} color="#D97706" />
             </View>
             <AppText style={styles.statLabel}>Price Range</AppText>
-            <AppText style={styles.statMainText}>₹399 - ₹599</AppText>
+            <AppText style={styles.statMainText}>{service.priceRange}</AppText>
             <AppText style={styles.statSubText}>Final price may vary</AppText>
           </View>
         </View>
