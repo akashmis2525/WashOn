@@ -59,7 +59,7 @@ export const AfterWashPhotosScreen: React.FC = () => {
 
   const handleContinuePayment = () => {
     if (satisfactionChoice === 'satisfied') {
-      navigation.navigate(Routes.PAYMENT_METHOD, { bookingId });
+      navigation.navigate(Routes.SERVICE_COMPLETION_CONFIRMATION, { bookingId });
     } else {
       navigation.navigate(Routes.REPORT_ISSUE, { bookingId });
     }

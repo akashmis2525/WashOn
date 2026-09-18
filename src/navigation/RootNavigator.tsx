@@ -42,6 +42,11 @@ import { BeforeWashPhotosScreen } from '../screens/wash/BeforeWashPhotosScreen';
 import { WashInProgressScreen } from '../screens/wash/WashInProgressScreen';
 import { ServiceProgressDetailsScreen } from '../screens/wash/ServiceProgressDetailsScreen';
 import { AfterWashPhotosScreen } from '../screens/wash/AfterWashPhotosScreen';
+import { ServiceCompletionConfirmationScreen } from '../screens/wash/ServiceCompletionConfirmationScreen';
+import { PaymentMethodScreen } from '../screens/payment/PaymentMethodScreen';
+import { PaymentConfirmationScreen } from '../screens/payment/PaymentConfirmationScreen';
+import { PaymentProcessingScreen } from '../screens/payment/PaymentProcessingScreen';
+import { PaymentSuccessScreen } from '../screens/payment/PaymentSuccessScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -113,13 +118,13 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.WASH_IN_PROGRESS} component={WashInProgressScreen} />
       <Stack.Screen name={Routes.SERVICE_PROGRESS_DETAILS} component={ServiceProgressDetailsScreen} />
       <Stack.Screen name={Routes.AFTER_WASH_PHOTOS} component={AfterWashPhotosScreen} />
-      <Stack.Screen name={Routes.SERVICE_COMPLETION_CONFIRMATION} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.SERVICE_COMPLETION_CONFIRMATION} component={ServiceCompletionConfirmationScreen} />
 
       {/* PAYMENT AND INVOICE (042 - 047) */}
-      <Stack.Screen name={Routes.PAYMENT_METHOD} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.PAYMENT_CONFIRMATION} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.PAYMENT_PROCESSING} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.PAYMENT_SUCCESS} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.PAYMENT_METHOD} component={PaymentMethodScreen} />
+      <Stack.Screen name={Routes.PAYMENT_CONFIRMATION} component={PaymentConfirmationScreen} />
+      <Stack.Screen name={Routes.PAYMENT_PROCESSING} component={PaymentProcessingScreen} />
+      <Stack.Screen name={Routes.PAYMENT_SUCCESS} component={PaymentSuccessScreen} />
       <Stack.Screen name={Routes.PAYMENT_FAILED} component={PlaceholderScreen} />
       <Stack.Screen name={Routes.INVOICE} component={PlaceholderScreen} />
 
