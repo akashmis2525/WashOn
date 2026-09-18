@@ -98,6 +98,9 @@ export const Routes = {
   TERMS_PRIVACY: '069_TermsPrivacy',
   SETTINGS: '070_Settings',
 
+  // VENDOR APP SCREENS
+  VENDOR_SPLASH: 'V001_VendorSplash',
+
   // Navigators
   AUTH_STACK: 'AuthStack',
   MAIN_TABS: 'MainTabs',

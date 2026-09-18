@@ -93,4 +93,7 @@ export type RootStackParamList = {
   [Routes.SUPPORT_CHAT]: undefined;
   [Routes.TERMS_PRIVACY]: { type: 'terms' | 'privacy' };
   [Routes.SETTINGS]: undefined;
+
+  // Vendor screens
+  [Routes.VENDOR_SPLASH]: undefined;
 };
