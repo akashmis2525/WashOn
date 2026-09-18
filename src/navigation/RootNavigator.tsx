@@ -52,6 +52,11 @@ import { InvoiceScreen } from '../screens/payment/InvoiceScreen';
 import { RateWashermanScreen } from '../screens/rating/RateWashermanScreen';
 import { WriteReviewScreen } from '../screens/rating/WriteReviewScreen';
 import { BeforeAfterFeedbackScreen } from '../screens/rating/BeforeAfterFeedbackScreen';
+import { ReportIssueScreen } from '../screens/complaints/ReportIssueScreen';
+import { ComplaintTrackingScreen } from '../screens/complaints/ComplaintTrackingScreen';
+import { UpcomingBookingsScreen } from '../screens/bookings/UpcomingBookingsScreen';
+import { BookingHistoryScreen } from '../screens/bookings/BookingHistoryScreen';
+import { BookingViewDetailsScreen } from '../screens/bookings/BookingViewDetailsScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -137,13 +142,13 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.RATE_WASHERMAN} component={RateWashermanScreen} />
       <Stack.Screen name={Routes.WRITE_REVIEW} component={WriteReviewScreen} />
       <Stack.Screen name={Routes.BEFORE_AFTER_FEEDBACK} component={BeforeAfterFeedbackScreen} />
-      <Stack.Screen name={Routes.REPORT_ISSUE} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.COMPLAINT_TRACKING} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.REPORT_ISSUE} component={ReportIssueScreen} />
+      <Stack.Screen name={Routes.COMPLAINT_TRACKING} component={ComplaintTrackingScreen} />
 
       {/* BOOKINGS (054 - 057) */}
-      <Stack.Screen name={Routes.UPCOMING_BOOKINGS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.BOOKING_HISTORY} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.BOOKING_VIEW_DETAILS} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.UPCOMING_BOOKINGS} component={UpcomingBookingsScreen} />
+      <Stack.Screen name={Routes.BOOKING_HISTORY} component={BookingHistoryScreen} />
+      <Stack.Screen name={Routes.BOOKING_VIEW_DETAILS} component={BookingViewDetailsScreen} />
       <Stack.Screen name={Routes.REBOOK_SERVICE} component={PlaceholderScreen} />
 
       {/* WALLET AND OFFERS (058 - 061) */}
