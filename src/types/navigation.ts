@@ -72,6 +72,7 @@ export type RootStackParamList = {
   [Routes.BEFORE_AFTER_FEEDBACK]: { bookingId: string };
   [Routes.REPORT_ISSUE]: { bookingId: string };
   [Routes.COMPLAINT_TRACKING]: { complaintId: string };
+  [Routes.COMPLAINT_DETAILS]: { complaintId: string };
 
   [Routes.UPCOMING_BOOKINGS]: undefined;
   [Routes.BOOKING_HISTORY]: undefined;
@@ -82,6 +83,7 @@ export type RootStackParamList = {
   [Routes.ADD_MONEY]: undefined;
   [Routes.OFFERS_COUPONS]: undefined;
   [Routes.SUBSCRIPTION_PLANS]: undefined;
+  [Routes.SUBSCRIPTION_DETAILS]: { planId?: string };
 
   [Routes.CUSTOMER_PROFILE]: undefined;
   [Routes.EDIT_PROFILE]: undefined;

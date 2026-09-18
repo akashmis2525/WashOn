@@ -54,6 +54,7 @@ import { WriteReviewScreen } from '../screens/rating/WriteReviewScreen';
 import { BeforeAfterFeedbackScreen } from '../screens/rating/BeforeAfterFeedbackScreen';
 import { ReportIssueScreen } from '../screens/complaints/ReportIssueScreen';
 import { ComplaintTrackingScreen } from '../screens/complaints/ComplaintTrackingScreen';
+import { ComplaintDetailsScreen } from '../screens/complaints/ComplaintDetailsScreen';
 import { UpcomingBookingsScreen } from '../screens/bookings/UpcomingBookingsScreen';
 import { BookingHistoryScreen } from '../screens/bookings/BookingHistoryScreen';
 import { BookingViewDetailsScreen } from '../screens/bookings/BookingViewDetailsScreen';
@@ -62,6 +63,7 @@ import { WalletScreen } from '../screens/wallet/WalletScreen';
 import { AddMoneyScreen } from '../screens/wallet/AddMoneyScreen';
 import { OffersCouponsScreen } from '../screens/wallet/OffersCouponsScreen';
 import { SubscriptionPlansScreen } from '../screens/wallet/SubscriptionPlansScreen';
+import { SubscriptionDetailsScreen } from '../screens/wallet/SubscriptionDetailsScreen';
 import { CustomerProfileScreen } from '../screens/profile/CustomerProfileScreen';
 import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 import { SavedAddressesScreen } from '../screens/profile/SavedAddressesScreen';
@@ -151,12 +153,13 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.PAYMENT_FAILED} component={PaymentFailedScreen} />
       <Stack.Screen name={Routes.INVOICE} component={InvoiceScreen} />
 
-      {/* RATING AND COMPLAINTS (048 - 052) */}
+      {/* RATING AND COMPLAINTS (048 - 053) */}
       <Stack.Screen name={Routes.RATE_WASHERMAN} component={RateWashermanScreen} />
       <Stack.Screen name={Routes.WRITE_REVIEW} component={WriteReviewScreen} />
       <Stack.Screen name={Routes.BEFORE_AFTER_FEEDBACK} component={BeforeAfterFeedbackScreen} />
       <Stack.Screen name={Routes.REPORT_ISSUE} component={ReportIssueScreen} />
       <Stack.Screen name={Routes.COMPLAINT_TRACKING} component={ComplaintTrackingScreen} />
+      <Stack.Screen name={Routes.COMPLAINT_DETAILS} component={ComplaintDetailsScreen} />
 
       {/* BOOKINGS (054 - 057) */}
       <Stack.Screen name={Routes.UPCOMING_BOOKINGS} component={UpcomingBookingsScreen} />
@@ -164,11 +167,12 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.BOOKING_VIEW_DETAILS} component={BookingViewDetailsScreen} />
       <Stack.Screen name={Routes.REBOOK_SERVICE} component={RebookServiceScreen} />
 
-      {/* WALLET AND OFFERS (058 - 061) */}
+      {/* WALLET AND OFFERS (058 - 062) */}
       <Stack.Screen name={Routes.WALLET} component={WalletScreen} />
       <Stack.Screen name={Routes.ADD_MONEY} component={AddMoneyScreen} />
       <Stack.Screen name={Routes.OFFERS_COUPONS} component={OffersCouponsScreen} />
       <Stack.Screen name={Routes.SUBSCRIPTION_PLANS} component={SubscriptionPlansScreen} />
+      <Stack.Screen name={Routes.SUBSCRIPTION_DETAILS} component={SubscriptionDetailsScreen} />
 
       {/* PROFILE AND SUPPORT (063 - 070) */}
       <Stack.Screen name={Routes.CUSTOMER_PROFILE} component={CustomerProfileScreen} />

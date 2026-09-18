@@ -67,13 +67,13 @@ export const Routes = {
   PAYMENT_FAILED: '046_PaymentFailed',
   INVOICE: '047_Invoice',
 
-  // RATING AND COMPLAINTS (048 - 052)
+  // RATING AND COMPLAINTS (048 - 053)
   RATE_WASHERMAN: '048_RateWasherman',
   WRITE_REVIEW: '049_WriteReview',
   BEFORE_AFTER_FEEDBACK: '050_BeforeAfterFeedback',
   REPORT_ISSUE: '051_ReportIssue',
   COMPLAINT_TRACKING: '052_ComplaintTracking',
-  // 053 is reserved for future expansion
+  COMPLAINT_DETAILS: '053_ComplaintDetails',
 
   // BOOKINGS (054 - 057)
   UPCOMING_BOOKINGS: '054_UpcomingBookings',
@@ -81,12 +81,12 @@ export const Routes = {
   BOOKING_VIEW_DETAILS: '056_BookingViewDetails',
   REBOOK_SERVICE: '057_RebookService',
 
-  // WALLET AND OFFERS (058 - 061)
+  // WALLET AND OFFERS (058 - 062)
   WALLET: '058_Wallet',
   ADD_MONEY: '059_AddMoney',
   OFFERS_COUPONS: '060_OffersCoupons',
   SUBSCRIPTION_PLANS: '061_SubscriptionPlans',
-  // 062 is reserved for future expansion
+  SUBSCRIPTION_DETAILS: '062_SubscriptionDetails',
 
   // PROFILE AND SUPPORT (063 - 070)
   CUSTOMER_PROFILE: '063_CustomerProfile',
