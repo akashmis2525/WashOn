@@ -60,7 +60,7 @@ export const VendorSplashScreen: React.FC = () => {
 
     // Session / splash transition timeout (simulate init or route)
     const timer = setTimeout(() => {
-      // Ready for next vendor screen (e.g. V002 Vendor Onboarding / Login)
+      navigation.navigate(Routes.VENDOR_ONBOARDING_1 as never);
     }, 2800);
 
     return () => clearTimeout(timer);

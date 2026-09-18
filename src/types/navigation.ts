@@ -96,4 +96,6 @@ export type RootStackParamList = {
 
   // Vendor screens
   [Routes.VENDOR_SPLASH]: undefined;
+  [Routes.VENDOR_ONBOARDING_1]: undefined;
+  [Routes.VENDOR_LOGIN]: undefined;
 };

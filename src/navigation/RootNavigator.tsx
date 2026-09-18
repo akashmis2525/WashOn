@@ -73,6 +73,7 @@ import { SupportChatScreen } from '../screens/support/SupportChatScreen';
 import { TermsPrivacyScreen } from '../screens/support/TermsPrivacyScreen';
 import { SettingsScreen } from '../screens/profile/SettingsScreen';
 import { VendorSplashScreen } from '../screens/vendor/VendorSplashScreen';
+import { VendorOnboarding01Screen } from '../screens/vendor/VendorOnboarding01Screen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -187,6 +188,7 @@ export const RootNavigator: React.FC = () => {
 
       {/* VENDOR APP (V001+) */}
       <Stack.Screen name={Routes.VENDOR_SPLASH} component={VendorSplashScreen} />
+      <Stack.Screen name={Routes.VENDOR_ONBOARDING_1} component={VendorOnboarding01Screen} />
     </Stack.Navigator>
   );
 };

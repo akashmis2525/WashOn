@@ -100,6 +100,8 @@ export const Routes = {
 
   // VENDOR APP SCREENS
   VENDOR_SPLASH: 'V001_VendorSplash',
+  VENDOR_ONBOARDING_1: 'V002_VendorOnboarding1',
+  VENDOR_LOGIN: 'V005_VendorLogin',
 
   // Navigators
   AUTH_STACK: 'AuthStack',
