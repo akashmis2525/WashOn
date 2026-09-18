@@ -62,6 +62,11 @@ import { WalletScreen } from '../screens/wallet/WalletScreen';
 import { AddMoneyScreen } from '../screens/wallet/AddMoneyScreen';
 import { OffersCouponsScreen } from '../screens/wallet/OffersCouponsScreen';
 import { SubscriptionPlansScreen } from '../screens/wallet/SubscriptionPlansScreen';
+import { CustomerProfileScreen } from '../screens/profile/CustomerProfileScreen';
+import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
+import { SavedAddressesScreen } from '../screens/profile/SavedAddressesScreen';
+import { NotificationsScreen } from '../screens/profile/NotificationsScreen';
+import { HelpSupportScreen } from '../screens/support/HelpSupportScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -163,11 +168,11 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.SUBSCRIPTION_PLANS} component={SubscriptionPlansScreen} />
 
       {/* PROFILE AND SUPPORT (063 - 070) */}
-      <Stack.Screen name={Routes.CUSTOMER_PROFILE} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.EDIT_PROFILE} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.SAVED_ADDRESSES} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.NOTIFICATIONS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.HELP_SUPPORT} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.CUSTOMER_PROFILE} component={CustomerProfileScreen} />
+      <Stack.Screen name={Routes.EDIT_PROFILE} component={EditProfileScreen} />
+      <Stack.Screen name={Routes.SAVED_ADDRESSES} component={SavedAddressesScreen} />
+      <Stack.Screen name={Routes.NOTIFICATIONS} component={NotificationsScreen} />
+      <Stack.Screen name={Routes.HELP_SUPPORT} component={HelpSupportScreen} />
       <Stack.Screen name={Routes.SUPPORT_CHAT} component={PlaceholderScreen} />
       <Stack.Screen name={Routes.TERMS_PRIVACY} component={PlaceholderScreen} />
       <Stack.Screen name={Routes.SETTINGS} component={PlaceholderScreen} />
