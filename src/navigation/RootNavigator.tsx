@@ -57,6 +57,11 @@ import { ComplaintTrackingScreen } from '../screens/complaints/ComplaintTracking
 import { UpcomingBookingsScreen } from '../screens/bookings/UpcomingBookingsScreen';
 import { BookingHistoryScreen } from '../screens/bookings/BookingHistoryScreen';
 import { BookingViewDetailsScreen } from '../screens/bookings/BookingViewDetailsScreen';
+import { RebookServiceScreen } from '../screens/bookings/RebookServiceScreen';
+import { WalletScreen } from '../screens/wallet/WalletScreen';
+import { AddMoneyScreen } from '../screens/wallet/AddMoneyScreen';
+import { OffersCouponsScreen } from '../screens/wallet/OffersCouponsScreen';
+import { SubscriptionPlansScreen } from '../screens/wallet/SubscriptionPlansScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -149,13 +154,13 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.UPCOMING_BOOKINGS} component={UpcomingBookingsScreen} />
       <Stack.Screen name={Routes.BOOKING_HISTORY} component={BookingHistoryScreen} />
       <Stack.Screen name={Routes.BOOKING_VIEW_DETAILS} component={BookingViewDetailsScreen} />
-      <Stack.Screen name={Routes.REBOOK_SERVICE} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.REBOOK_SERVICE} component={RebookServiceScreen} />
 
       {/* WALLET AND OFFERS (058 - 061) */}
-      <Stack.Screen name={Routes.WALLET} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.ADD_MONEY} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.OFFERS_COUPONS} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.SUBSCRIPTION_PLANS} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.WALLET} component={WalletScreen} />
+      <Stack.Screen name={Routes.ADD_MONEY} component={AddMoneyScreen} />
+      <Stack.Screen name={Routes.OFFERS_COUPONS} component={OffersCouponsScreen} />
+      <Stack.Screen name={Routes.SUBSCRIPTION_PLANS} component={SubscriptionPlansScreen} />
 
       {/* PROFILE AND SUPPORT (063 - 070) */}
       <Stack.Screen name={Routes.CUSTOMER_PROFILE} component={PlaceholderScreen} />
