@@ -67,6 +67,9 @@ import { EditProfileScreen } from '../screens/profile/EditProfileScreen';
 import { SavedAddressesScreen } from '../screens/profile/SavedAddressesScreen';
 import { NotificationsScreen } from '../screens/profile/NotificationsScreen';
 import { HelpSupportScreen } from '../screens/support/HelpSupportScreen';
+import { SupportChatScreen } from '../screens/support/SupportChatScreen';
+import { TermsPrivacyScreen } from '../screens/support/TermsPrivacyScreen';
+import { SettingsScreen } from '../screens/profile/SettingsScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -173,9 +176,9 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.SAVED_ADDRESSES} component={SavedAddressesScreen} />
       <Stack.Screen name={Routes.NOTIFICATIONS} component={NotificationsScreen} />
       <Stack.Screen name={Routes.HELP_SUPPORT} component={HelpSupportScreen} />
-      <Stack.Screen name={Routes.SUPPORT_CHAT} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.TERMS_PRIVACY} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.SETTINGS} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.SUPPORT_CHAT} component={SupportChatScreen} />
+      <Stack.Screen name={Routes.TERMS_PRIVACY} component={TermsPrivacyScreen} />
+      <Stack.Screen name={Routes.SETTINGS} component={SettingsScreen} />
     </Stack.Navigator>
   );
 };
