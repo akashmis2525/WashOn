@@ -47,6 +47,11 @@ import { PaymentMethodScreen } from '../screens/payment/PaymentMethodScreen';
 import { PaymentConfirmationScreen } from '../screens/payment/PaymentConfirmationScreen';
 import { PaymentProcessingScreen } from '../screens/payment/PaymentProcessingScreen';
 import { PaymentSuccessScreen } from '../screens/payment/PaymentSuccessScreen';
+import { PaymentFailedScreen } from '../screens/payment/PaymentFailedScreen';
+import { InvoiceScreen } from '../screens/payment/InvoiceScreen';
+import { RateWashermanScreen } from '../screens/rating/RateWashermanScreen';
+import { WriteReviewScreen } from '../screens/rating/WriteReviewScreen';
+import { BeforeAfterFeedbackScreen } from '../screens/rating/BeforeAfterFeedbackScreen';
 import { PlaceholderScreen } from '../screens/common/PlaceholderScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -125,13 +130,13 @@ export const RootNavigator: React.FC = () => {
       <Stack.Screen name={Routes.PAYMENT_CONFIRMATION} component={PaymentConfirmationScreen} />
       <Stack.Screen name={Routes.PAYMENT_PROCESSING} component={PaymentProcessingScreen} />
       <Stack.Screen name={Routes.PAYMENT_SUCCESS} component={PaymentSuccessScreen} />
-      <Stack.Screen name={Routes.PAYMENT_FAILED} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.INVOICE} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.PAYMENT_FAILED} component={PaymentFailedScreen} />
+      <Stack.Screen name={Routes.INVOICE} component={InvoiceScreen} />
 
       {/* RATING AND COMPLAINTS (048 - 052) */}
-      <Stack.Screen name={Routes.RATE_WASHERMAN} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.WRITE_REVIEW} component={PlaceholderScreen} />
-      <Stack.Screen name={Routes.BEFORE_AFTER_FEEDBACK} component={PlaceholderScreen} />
+      <Stack.Screen name={Routes.RATE_WASHERMAN} component={RateWashermanScreen} />
+      <Stack.Screen name={Routes.WRITE_REVIEW} component={WriteReviewScreen} />
+      <Stack.Screen name={Routes.BEFORE_AFTER_FEEDBACK} component={BeforeAfterFeedbackScreen} />
       <Stack.Screen name={Routes.REPORT_ISSUE} component={PlaceholderScreen} />
       <Stack.Screen name={Routes.COMPLAINT_TRACKING} component={PlaceholderScreen} />
 
