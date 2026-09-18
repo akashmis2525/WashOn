@@ -33,6 +33,7 @@ import { Colors } from '../../constants/colors';
 import { Typography } from '../../constants/typography';
 import { Routes } from '../../constants/routes';
 import { RootStackParamList } from '../../types/navigation';
+import { BottomTabBar } from '../../components/navigation/BottomTabBar';
 
 const { width } = Dimensions.get('window');
 
@@ -505,8 +506,11 @@ export const OffersCouponsScreen: React.FC = () => {
           ))}
         </View>
 
-        <View style={{ height: 40 }} />
+        <View style={{ height: 80 }} />
       </ScrollView>
+
+      {/* BOTTOM TAB BAR */}
+      <BottomTabBar activeTab="offers" />
     </SafeAreaView>
   );
 };

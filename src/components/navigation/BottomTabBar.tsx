@@ -2,22 +2,21 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Home, Calendar, Wallet, Headphones, User } from 'lucide-react-native';
+import { Home, CalendarDays, Wallet, Tag, User } from 'lucide-react-native';
 import { Colors } from '../../constants/colors';
-import { FontFamily } from '../../constants/typography';
-import { Spacing, BorderRadius } from '../../constants/spacing';
+import { Typography } from '../../constants/typography';
 import { Routes } from '../../constants/routes';
 import { RootStackParamList } from '../../types/navigation';
 import { AppText } from '../common/AppText';
 
-export type TabKey = 'home' | 'bookings' | 'wallet' | 'help' | 'profile';
+export type TabKey = 'home' | 'bookings' | 'wallet' | 'offers' | 'profile' | 'help';
 
 export interface BottomTabBarProps {
-  activeTab: TabKey;
+  activeTab?: TabKey;
   onTabPress?: (tab: TabKey) => void;
 }
 
-export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPress }) => {
+export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab = 'home', onTabPress }) => {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
   const handleTabPress = (tab: TabKey) => {
@@ -34,14 +33,23 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
       case 'wallet':
         navigation.navigate(Routes.WALLET);
         break;
-      case 'help':
-        navigation.navigate(Routes.HELP_SUPPORT);
+      case 'offers':
+        navigation.navigate(Routes.OFFERS_COUPONS);
         break;
       case 'profile':
         navigation.navigate(Routes.CUSTOMER_PROFILE);
         break;
+      case 'help':
+        navigation.navigate(Routes.HELP_SUPPORT);
+        break;
     }
   };
+
+  const isHome = activeTab === 'home';
+  const isBookings = activeTab === 'bookings';
+  const isWallet = activeTab === 'wallet';
+  const isOffers = activeTab === 'offers';
+  const isProfile = activeTab === 'profile' || activeTab === 'help';
 
   return (
     <View style={styles.container}>
@@ -51,21 +59,15 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
         onPress={() => handleTabPress('home')}
         activeOpacity={0.7}
       >
-        <View style={[styles.iconWrapper, activeTab === 'home' ? styles.activeIconWrapper : null]}>
-          <Home
-            size={22}
-            color={activeTab === 'home' ? '#111827' : '#9CA3AF'}
-            strokeWidth={activeTab === 'home' ? 2.5 : 2}
-          />
-        </View>
-        <AppText
-          style={[
-            styles.tabLabel,
-            activeTab === 'home' ? styles.activeTabLabel : styles.inactiveTabLabel,
-          ]}
-        >
+        <Home
+          size={20}
+          color={isHome ? '#059669' : '#94A3B8'}
+          strokeWidth={isHome ? 2.2 : 1.8}
+        />
+        <AppText style={[styles.tabLabel, isHome ? styles.activeTabLabel : styles.inactiveTabLabel]}>
           Home
         </AppText>
+        {isHome && <View style={styles.activeIndicator} />}
       </TouchableOpacity>
 
       {/* Bookings Tab */}
@@ -74,21 +76,20 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
         onPress={() => handleTabPress('bookings')}
         activeOpacity={0.7}
       >
-        <View style={[styles.iconWrapper, activeTab === 'bookings' ? styles.activeIconWrapper : null]}>
-          <Calendar
-            size={22}
-            color={activeTab === 'bookings' ? '#111827' : '#9CA3AF'}
-            strokeWidth={activeTab === 'bookings' ? 2.5 : 2}
-          />
-        </View>
+        <CalendarDays
+          size={20}
+          color={isBookings ? '#059669' : '#94A3B8'}
+          strokeWidth={isBookings ? 2.2 : 1.8}
+        />
         <AppText
           style={[
             styles.tabLabel,
-            activeTab === 'bookings' ? styles.activeTabLabel : styles.inactiveTabLabel,
+            isBookings ? styles.activeTabLabel : styles.inactiveTabLabel,
           ]}
         >
           Bookings
         </AppText>
+        {isBookings && <View style={styles.activeIndicator} />}
       </TouchableOpacity>
 
       {/* Wallet Tab */}
@@ -97,44 +98,42 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
         onPress={() => handleTabPress('wallet')}
         activeOpacity={0.7}
       >
-        <View style={[styles.iconWrapper, activeTab === 'wallet' ? styles.activeIconWrapper : null]}>
-          <Wallet
-            size={22}
-            color={activeTab === 'wallet' ? '#111827' : '#9CA3AF'}
-            strokeWidth={activeTab === 'wallet' ? 2.5 : 2}
-          />
-        </View>
+        <Wallet
+          size={20}
+          color={isWallet ? '#059669' : '#94A3B8'}
+          strokeWidth={isWallet ? 2.2 : 1.8}
+        />
         <AppText
           style={[
             styles.tabLabel,
-            activeTab === 'wallet' ? styles.activeTabLabel : styles.inactiveTabLabel,
+            isWallet ? styles.activeTabLabel : styles.inactiveTabLabel,
           ]}
         >
           Wallet
         </AppText>
+        {isWallet && <View style={styles.activeIndicator} />}
       </TouchableOpacity>
 
-      {/* Help Tab */}
+      {/* Offers Tab */}
       <TouchableOpacity
         style={styles.tabItem}
-        onPress={() => handleTabPress('help')}
+        onPress={() => handleTabPress('offers')}
         activeOpacity={0.7}
       >
-        <View style={[styles.iconWrapper, activeTab === 'help' ? styles.activeIconWrapper : null]}>
-          <Headphones
-            size={22}
-            color={activeTab === 'help' ? '#111827' : '#9CA3AF'}
-            strokeWidth={activeTab === 'help' ? 2.5 : 2}
-          />
-        </View>
+        <Tag
+          size={20}
+          color={isOffers ? '#059669' : '#94A3B8'}
+          strokeWidth={isOffers ? 2.2 : 1.8}
+        />
         <AppText
           style={[
             styles.tabLabel,
-            activeTab === 'help' ? styles.activeTabLabel : styles.inactiveTabLabel,
+            isOffers ? styles.activeTabLabel : styles.inactiveTabLabel,
           ]}
         >
-          Help
+          Offers
         </AppText>
+        {isOffers && <View style={styles.activeIndicator} />}
       </TouchableOpacity>
 
       {/* Profile Tab */}
@@ -143,21 +142,20 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
         onPress={() => handleTabPress('profile')}
         activeOpacity={0.7}
       >
-        <View style={[styles.iconWrapper, activeTab === 'profile' ? styles.activeIconWrapper : null]}>
-          <User
-            size={22}
-            color={activeTab === 'profile' ? '#111827' : '#9CA3AF'}
-            strokeWidth={activeTab === 'profile' ? 2.5 : 2}
-          />
-        </View>
+        <User
+          size={20}
+          color={isProfile ? '#059669' : '#94A3B8'}
+          strokeWidth={isProfile ? 2.2 : 1.8}
+        />
         <AppText
           style={[
             styles.tabLabel,
-            activeTab === 'profile' ? styles.activeTabLabel : styles.inactiveTabLabel,
+            isProfile ? styles.activeTabLabel : styles.inactiveTabLabel,
           ]}
         >
           Profile
         </AppText>
+        {isProfile && <View style={styles.activeIndicator} />}
       </TouchableOpacity>
     </View>
   );
@@ -165,42 +163,49 @@ export const BottomTabBar: React.FC<BottomTabBarProps> = ({ activeTab, onTabPres
 
 const styles = StyleSheet.create({
   container: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    height: 72,
+    height: Platform.OS === 'ios' ? 76 : 64,
     backgroundColor: '#FFFFFF',
     borderTopWidth: 1,
-    borderTopColor: '#F3F4F6',
-    paddingBottom: Platform.OS === 'ios' ? 12 : 4,
+    borderTopColor: '#E2E8F0',
+    paddingBottom: Platform.OS === 'ios' ? 16 : 6,
+    paddingTop: 8,
     paddingHorizontal: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: -2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 8,
   },
   tabItem: {
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
-    paddingVertical: 4,
-  },
-  iconWrapper: {
-    paddingHorizontal: 16,
-    paddingVertical: 4,
-    borderRadius: BorderRadius.full,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  activeIconWrapper: {
-    backgroundColor: '#FFF3C4',
+    position: 'relative',
   },
   tabLabel: {
-    fontSize: 11,
+    fontSize: 10,
     marginTop: 2,
   },
   activeTabLabel: {
-    fontFamily: FontFamily.bold,
-    color: '#111827',
+    fontFamily: Typography.fontFamily.bold,
+    color: '#059669',
   },
   inactiveTabLabel: {
-    fontFamily: FontFamily.medium,
-    color: '#9CA3AF',
+    fontFamily: Typography.fontFamily.medium,
+    color: '#94A3B8',
+  },
+  activeIndicator: {
+    width: 16,
+    height: 2.5,
+    backgroundColor: '#059669',
+    borderRadius: 2,
+    marginTop: 3,
   },
 });

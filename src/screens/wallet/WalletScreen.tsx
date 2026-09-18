@@ -33,6 +33,7 @@ import { Colors } from '../../constants/colors';
 import { Typography } from '../../constants/typography';
 import { Routes } from '../../constants/routes';
 import { RootStackParamList } from '../../types/navigation';
+import { BottomTabBar } from '../../components/navigation/BottomTabBar';
 
 const { width } = Dimensions.get('window');
 
@@ -329,48 +330,7 @@ export const WalletScreen: React.FC = () => {
       </ScrollView>
 
       {/* BOTTOM NAV */}
-      <View style={styles.bottomNavBar}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.HOME_DASHBOARD)}
-          activeOpacity={0.7}
-        >
-          <Home size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Home</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.UPCOMING_BOOKINGS)}
-          activeOpacity={0.7}
-        >
-          <CalendarDays size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Bookings</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem} activeOpacity={0.7}>
-          <Wallet size={18} color="#059669" />
-          <AppText style={[styles.navLabel, styles.navLabelActive]}>Wallet</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.OFFERS_COUPONS)}
-          activeOpacity={0.7}
-        >
-          <Tag size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Offers</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.CUSTOMER_PROFILE)}
-          activeOpacity={0.7}
-        >
-          <User size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Profile</AppText>
-        </TouchableOpacity>
-      </View>
+      <BottomTabBar activeTab="wallet" />
     </SafeAreaView>
   );
 };

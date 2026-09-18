@@ -28,6 +28,7 @@ import { RootStackParamList } from '../../types/navigation';
 import { useVehicleStore } from '../../store/vehicleStore';
 import { AppText } from '../../components/common/AppText';
 import { SplashVehicleShowcase } from '../../assets/illustrations/SplashAssets';
+import { BottomTabBar } from '../../components/navigation/BottomTabBar';
 
 const { width } = Dimensions.get('window');
 
@@ -305,7 +306,12 @@ export const VehicleListScreen: React.FC = () => {
           <Plus size={20} color={Colors.black} style={styles.buttonIcon} />
           <AppText style={styles.addVehicleButtonText}>Add Vehicle</AppText>
         </TouchableOpacity>
+
+        <View style={{ height: 40 }} />
       </ScrollView>
+
+      {/* BOTTOM TAB BAR */}
+      <BottomTabBar activeTab="profile" />
     </SafeAreaView>
   );
 };

@@ -37,6 +37,7 @@ import { Colors } from '../../constants/colors';
 import { Typography } from '../../constants/typography';
 import { Routes } from '../../constants/routes';
 import { RootStackParamList } from '../../types/navigation';
+import { BottomTabBar } from '../../components/navigation/BottomTabBar';
 
 const { width } = Dimensions.get('window');
 
@@ -368,48 +369,7 @@ export const BookingHistoryScreen: React.FC = () => {
       </ScrollView>
 
       {/* BOTTOM NAV */}
-      <View style={styles.bottomNavBar}>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.HOME_DASHBOARD)}
-          activeOpacity={0.7}
-        >
-          <Home size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Home</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.UPCOMING_BOOKINGS)}
-          activeOpacity={0.7}
-        >
-          <CalendarDays size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>My Bookings</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.SERVICE_CATEGORY)}
-          activeOpacity={0.7}
-        >
-          <PlusCircle size={22} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Book Now</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.navItem} activeOpacity={0.7}>
-          <Tag size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Offers</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => navigation.navigate(Routes.CUSTOMER_PROFILE)}
-          activeOpacity={0.7}
-        >
-          <User size={18} color="#94A3B8" />
-          <AppText style={styles.navLabel}>Profile</AppText>
-        </TouchableOpacity>
-      </View>
+      <BottomTabBar activeTab="bookings" />
     </SafeAreaView>
   );
 };

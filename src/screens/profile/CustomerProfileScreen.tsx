@@ -35,6 +35,7 @@ import { Colors } from '../../constants/colors';
 import { Typography } from '../../constants/typography';
 import { Routes } from '../../constants/routes';
 import { RootStackParamList } from '../../types/navigation';
+import { BottomTabBar } from '../../components/navigation/BottomTabBar';
 
 const { width } = Dimensions.get('window');
 
@@ -341,47 +342,7 @@ export const CustomerProfileScreen: React.FC = () => {
       </ScrollView>
 
       {/* BOTTOM TAB BAR */}
-      <View style={styles.bottomTabBar}>
-        <TouchableOpacity
-          style={styles.tabBarItem}
-          onPress={() => navigation.navigate(Routes.HOME_DASHBOARD as never)}
-        >
-          <HomeIcon size={20} color="#94A3B8" />
-          <AppText style={styles.tabBarLabel}>Home</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.tabBarItem}
-          onPress={() => navigation.navigate(Routes.UPCOMING_BOOKINGS as never)}
-        >
-          <CalendarDays size={20} color="#94A3B8" />
-          <AppText style={styles.tabBarLabel}>Bookings</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.tabBarItem}
-          onPress={() => navigation.navigate(Routes.WALLET as never)}
-        >
-          <Wallet size={20} color="#94A3B8" />
-          <AppText style={styles.tabBarLabel}>Wallet</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.tabBarItem}
-          onPress={() => navigation.navigate(Routes.OFFERS_COUPONS as never)}
-        >
-          <Tag size={20} color="#94A3B8" />
-          <AppText style={styles.tabBarLabel}>Offers</AppText>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.tabBarItem}>
-          <User size={20} color="#059669" />
-          <AppText style={[styles.tabBarLabel, styles.tabBarLabelActive]}>
-            Profile
-          </AppText>
-          <View style={styles.activeTabIndicator} />
-        </TouchableOpacity>
-      </View>
+      <BottomTabBar activeTab="profile" />
     </SafeAreaView>
   );
 };
